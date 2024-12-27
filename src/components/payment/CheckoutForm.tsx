@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { CreditCard, Paypal } from "lucide-react";
+import { CreditCard, Wallet } from "lucide-react";
 import { useState } from "react";
 
 const paymentMethods = [
@@ -13,7 +13,7 @@ const paymentMethods = [
   {
     id: "paypal",
     name: "PayPal",
-    icon: Paypal,
+    icon: Wallet,
   },
   {
     id: "momo",
