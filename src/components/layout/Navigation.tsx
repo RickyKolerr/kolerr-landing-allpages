@@ -1,4 +1,4 @@
-import { Home, Users, Building2, MessageSquare, Phone, FileText, Calendar, Search, Bell, ArrowLeft } from "lucide-react";
+import { Home, Users, Building2, MessageSquare, Phone, FileText, Calendar, Search, Bell, ArrowLeft, CreditCard } from "lucide-react";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
@@ -9,6 +9,7 @@ const navigationItems = [
   { name: "For Agencies", path: "/for-agencies", icon: Building2 },
   { name: "Slots", path: "/slots", icon: Calendar },
   { name: "Features", path: "/features", icon: FileText },
+  { name: "Pricing", path: "/pricing", icon: CreditCard },
   { name: "Chat & Docs", path: "/chat", icon: MessageSquare },
   { name: "Contact", path: "/contact", icon: Phone },
 ];
