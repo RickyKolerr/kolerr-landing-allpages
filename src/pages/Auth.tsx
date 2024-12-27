@@ -16,9 +16,6 @@ const Auth = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // This is a placeholder for actual authentication logic
-    // We'll implement this after setting up Supabase
     toast({
       title: "Coming Soon",
       description: "Authentication will be implemented with Supabase integration",
@@ -27,8 +24,6 @@ const Auth = () => {
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // This is a placeholder for actual password reset logic
     toast({
       title: "Coming Soon",
       description: "Password reset will be implemented with Supabase integration",
