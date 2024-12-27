@@ -28,21 +28,28 @@ const plans = [
 
 export const Pricing = () => {
   return (
-    <div className="bg-gray-50 py-24 sm:py-32">
+    <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-base font-semibold leading-7 text-kolerr-primary">Pricing</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Simple, transparent pricing
-          </h2>
+          </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Choose the plan that best fits your needs. All plans include access to our core features.
           </p>
         </div>
+        
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2">
-          {plans.map((plan) => (
+          {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10"
+              className="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 transition-all duration-300 hover:shadow-xl hover:ring-kolerr-primary/50"
+              style={{
+                animation: `fade-up 0.5s ease-out forwards`,
+                animationDelay: `${index * 0.2}s`,
+                opacity: 0,
+              }}
             >
               <div>
                 <div className="flex items-center justify-between gap-x-4">
@@ -71,7 +78,7 @@ export const Pricing = () => {
                 </ul>
               </div>
               <Button
-                className="mt-8 bg-kolerr-primary hover:bg-kolerr-secondary"
+                className="mt-8 w-full bg-kolerr-primary hover:bg-kolerr-secondary transition-all duration-300 transform hover:scale-105"
               >
                 Get started today
               </Button>
