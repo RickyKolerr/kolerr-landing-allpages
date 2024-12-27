@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <div className="relative isolate overflow-hidden bg-white">
+    <div className="relative isolate overflow-hidden">
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-kolerr-primary to-kolerr-secondary opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
+        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-kolerr-primary to-kolerr-secondary opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
       </div>
       
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
@@ -13,21 +13,20 @@ export const Hero = () => {
           <div className="animate-fade-up">
             <div className="inline-flex space-x-6">
               <span className="rounded-full bg-kolerr-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-kolerr-primary ring-1 ring-inset ring-kolerr-primary/20">
-                What's new
+                New Platform
               </span>
               <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-                <span>Just shipped v1.0</span>
+                <span>Just launched</span>
               </span>
             </div>
             
             <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Connect Brands with{" "}
-              <span className="text-kolerr-primary animate-pulse">Influential Voices</span>
+              Connect with Top{" "}
+              <span className="text-kolerr-primary animate-pulse">KOLs</span>
             </h1>
             
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Kolerr simplifies influencer marketing by connecting brands with the perfect KOLs for their campaigns. 
-              Streamline your influencer outreach and amplify your brand's message.
+              Kolerr is your gateway to successful influencer marketing. Connect with the perfect KOLs for your brand and amplify your message.
             </p>
             
             <div className="mt-10 flex items-center gap-x-6">
@@ -40,10 +39,18 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-        <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-kolerr-primary to-kolerr-secondary opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" />
+        
+        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">
+          <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+            <img
+              src="/lovable-uploads/4ae7b41e-8029-4f8f-88f3-32e7f15fb20c.png"
+              alt="App screenshot"
+              width={2432}
+              height={1442}
+              className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
