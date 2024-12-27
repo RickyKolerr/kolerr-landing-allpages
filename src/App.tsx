@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import ForKols from "./pages/ForKols";
+import ForBrands from "./pages/ForBrands";
 import Pricing from "./pages/Pricing";
 import Checkout from "./pages/Checkout";
 import Chat from "./pages/Chat";
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth/*" element={<Auth />} />
           <Route path="/for-kols" element={<ForKols />} />
+          <Route path="/for-brands" element={<ForBrands />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/chat" element={<Chat />} />
