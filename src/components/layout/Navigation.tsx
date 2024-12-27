@@ -1,4 +1,4 @@
-import { Menu, X, ArrowLeft } from "lucide-react";
+import { Menu, X, ArrowLeft, Users, Building2, Calendar, FileText, CreditCard, MessageSquare, Phone, Search, Bell } from "lucide-react";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
