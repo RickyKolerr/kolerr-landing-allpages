@@ -41,16 +41,6 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-        
-        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">
-          <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <img
-              src="/lovable-uploads/b4cad0cb-fe38-4a99-b928-fbd480e8c22e.png"
-              alt="Kolerr Logo"
-              className="w-[30rem] animate-pulse"
-            />
-          </div>
-        </div>
       </div>
       
       <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">

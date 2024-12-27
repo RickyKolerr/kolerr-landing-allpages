@@ -25,14 +25,14 @@ const features = [
 
 export const Features = () => {
   return (
-    <div className="bg-gray-50 py-24 sm:py-32">
+    <div className="bg-black py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-kolerr-primary">Features</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-base font-semibold leading-7 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">Features</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Everything you need to succeed
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-gray-300">
             Powerful tools to help you manage your influencer marketing campaigns effectively
           </p>
         </div>
@@ -49,11 +49,13 @@ export const Features = () => {
                   opacity: 0,
                 }}
               >
-                <div className="rounded-2xl bg-white p-4 ring-1 ring-kolerr-primary/10 shadow-sm">
-                  <feature.icon className="h-6 w-6 text-kolerr-primary" />
+                <div className="rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 p-[1px]">
+                  <div className="rounded-2xl bg-black p-4">
+                    <feature.icon className="h-6 w-6 text-white" />
+                  </div>
                 </div>
-                <dt className="mt-4 font-semibold text-gray-900">{feature.name}</dt>
-                <dd className="mt-2 leading-7 text-gray-600">{feature.description}</dd>
+                <dt className="mt-4 font-semibold text-white">{feature.name}</dt>
+                <dd className="mt-2 leading-7 text-gray-300">{feature.description}</dd>
               </div>
             ))}
           </dl>

@@ -19,7 +19,7 @@ export function Navigation() {
       <div className="container flex items-center justify-between h-16">
         <div className="flex items-center gap-6">
           <a href="/" className="flex items-center gap-2">
-            <img src="/lovable-uploads/b4cad0cb-fe38-4a99-b928-fbd480e8c22e.png" alt="Kolerr Logo" className="w-32" />
+            <img src="/lovable-uploads/922cb0fe-2e6f-45c6-be3c-c89b46fead7c.png" alt="Kolerr Logo" className="w-32" />
           </a>
           <NavigationMenu>
             <NavigationMenuList className="hidden md:flex">
