@@ -11,7 +11,7 @@ const navigationItems = [
   { name: "Slots", path: "/slots", icon: Calendar },
   { name: "Features", path: "/features", icon: FileText },
   { name: "Pricing", path: "/pricing", icon: CreditCard },
-  { name: "Chat & Docs", path: "/chat", icon: MessageSquare },
+  { name: "Contracts & Chat", path: "/chat", icon: MessageSquare },
   { name: "Contact", path: "/contact", icon: Phone },
 ];
 
@@ -23,7 +23,7 @@ export function Navigation() {
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
-        <div className="container flex items-center justify-between h-16">
+        <div className="container mx-auto flex items-center justify-between h-16 px-4">
           <div className="flex items-center gap-6">
             <a href="/" className="flex items-center gap-2">
               <img src="/lovable-uploads/922cb0fe-2e6f-45c6-be3c-c89b46fead7c.png" alt="Kolerr Logo" className="w-32" />
@@ -94,17 +94,7 @@ export function Navigation() {
           </div>
         )}
       </div>
-
-      {/* Back Button (show on all pages except home) */}
-      {!isHomePage && (
-        <a
-          href="/"
-          className="fixed left-4 top-1/2 -translate-y-1/2 z-40 flex items-center justify-center w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full text-white transition-all duration-300 hover:scale-110"
-          title="Back to Home"
-        >
-          <ArrowLeft className="w-6 h-6" />
-        </a>
-      )}
+      <div className="h-16" /> {/* Spacer to prevent content from hiding under fixed navbar */}
     </>
   );
 }

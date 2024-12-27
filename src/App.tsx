@@ -8,6 +8,7 @@ import Auth from "./pages/Auth";
 import ForKols from "./pages/ForKols";
 import Pricing from "./pages/Pricing";
 import Checkout from "./pages/Checkout";
+import Chat from "./pages/Chat";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/for-kols" element={<ForKols />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
