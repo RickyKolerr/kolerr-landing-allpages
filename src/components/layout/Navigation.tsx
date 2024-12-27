@@ -15,12 +15,11 @@ const navigationItems = [
 
 export function Navigation() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
       <div className="container flex items-center justify-between h-16">
         <div className="flex items-center gap-6">
           <a href="/" className="flex items-center gap-2">
-            <img src="/lovable-uploads/4ae7b41e-8029-4f8f-88f3-32e7f15fb20c.png" alt="Logo" className="w-8 h-8" />
-            <span className="font-bold text-xl text-kolerr-primary">Kolerr</span>
+            <img src="/lovable-uploads/b4cad0cb-fe38-4a99-b928-fbd480e8c22e.png" alt="Kolerr Logo" className="w-32" />
           </a>
           <NavigationMenu>
             <NavigationMenuList className="hidden md:flex">
@@ -29,8 +28,8 @@ export function Navigation() {
                   <NavigationMenuLink
                     href={item.path}
                     className={cn(
-                      "flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-kolerr-primary transition-colors",
-                      "hover:bg-gray-50 rounded-md"
+                      "flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors",
+                      "hover:bg-white/10 rounded-md"
                     )}
                   >
                     <item.icon className="w-4 h-4" />
@@ -42,15 +41,15 @@ export function Navigation() {
           </NavigationMenu>
         </div>
         <div className="flex items-center gap-4">
-          <button className="p-2 text-gray-600 hover:text-kolerr-primary">
+          <button className="p-2 text-gray-300 hover:text-white">
             <Search className="w-5 h-5" />
           </button>
-          <button className="p-2 text-gray-600 hover:text-kolerr-primary">
+          <button className="p-2 text-gray-300 hover:text-white">
             <Bell className="w-5 h-5" />
           </button>
           <a
             href="/auth/login"
-            className="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-kolerr-primary hover:bg-kolerr-secondary rounded-md transition-colors"
+            className="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-md hover:opacity-90 transition-opacity"
           >
             Sign In
           </a>
