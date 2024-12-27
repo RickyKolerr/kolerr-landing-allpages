@@ -9,11 +9,19 @@ export const AgencyHero = () => {
   useEffect(() => {
     const detectLocation = async () => {
       try {
+        // Add a small delay to help with rate limiting
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
         const response = await fetch("https://ipapi.co/json/");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         setCountryCode(data.country_code);
       } catch (error) {
         console.error("Error detecting location:", error);
+        // Set a fallback country code if detection fails
+        setCountryCode("US");
       }
     };
     detectLocation();
