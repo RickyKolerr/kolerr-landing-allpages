@@ -1,26 +1,26 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
     name: "Anna Chen",
     role: "Beauty Influencer",
-    quote: "The SLOT system helped me secure two campaigns in just a week!",
-    avatar: "/avatars/anna.jpg",
+    quote: "The SLOT system helped me secure two campaigns in just a week! The AI matchmaking is incredibly accurate.",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
   },
   {
     name: "Marcus Rodriguez",
     role: "Tech Reviewer",
-    quote: "Finally, a platform that understands what KOLs really need.",
-    avatar: "/avatars/marcus.jpg",
+    quote: "Finally, a platform that understands what KOLs really need. The analytics tools are game-changing.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
   },
   {
     name: "Sarah Kim",
     role: "Lifestyle Creator",
-    quote: "The AI matchmaking is incredible. Every brand collaboration feels perfect.",
-    avatar: "/avatars/sarah.jpg",
+    quote: "The AI matchmaking is incredible. Every brand collaboration feels perfect for my audience.",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
   },
 ];
 
@@ -45,28 +45,31 @@ export const Testimonials = () => {
         </h2>
         
         <div className="relative max-w-4xl mx-auto">
-          <div className="absolute inset-y-0 left-0 flex items-center">
+          <div className="absolute inset-y-0 -left-4 flex items-center">
             <Button
               variant="outline"
               size="icon"
               onClick={prev}
-              className="text-white border-white/20 hover:bg-white/10"
+              className="text-white border-white/20 hover:bg-white/10 rounded-full"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
           </div>
           
           <div className="overflow-hidden px-12">
-            <div className="flex transition-transform duration-300 ease-in-out transform">
-              <Card className="w-full bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 p-8">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+            <Card className="w-full bg-gradient-to-br from-purple-900/50 to-black border-purple-800/50 p-8 backdrop-blur-sm">
+              <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-8">
+                <div className="relative">
+                  <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-pink-500/20">
                     <img
                       src={testimonials[activeIndex].avatar}
                       alt={testimonials[activeIndex].name}
                       className="w-full h-full object-cover"
                     />
                   </div>
+                  <Quote className="absolute -bottom-2 -right-2 text-pink-500 w-8 h-8" />
+                </div>
+                <div className="flex-1">
                   <blockquote className="text-xl text-white mb-4">
                     "{testimonials[activeIndex].quote}"
                   </blockquote>
@@ -74,21 +77,21 @@ export const Testimonials = () => {
                     <div className="font-semibold text-white">
                       {testimonials[activeIndex].name}
                     </div>
-                    <div className="text-gray-400">
+                    <div className="text-pink-400">
                       {testimonials[activeIndex].role}
                     </div>
                   </cite>
                 </div>
-              </Card>
-            </div>
+              </div>
+            </Card>
           </div>
           
-          <div className="absolute inset-y-0 right-0 flex items-center">
+          <div className="absolute inset-y-0 -right-4 flex items-center">
             <Button
               variant="outline"
               size="icon"
               onClick={next}
-              className="text-white border-white/20 hover:bg-white/10"
+              className="text-white border-white/20 hover:bg-white/10 rounded-full"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
