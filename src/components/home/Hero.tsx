@@ -1,7 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useEffect } from "react";
 
 export const Hero = () => {
+  useEffect(() => {
+    console.log("Hero component mounted");
+    return () => {
+      console.log("Hero component unmounted");
+    };
+  }, []);
+
+  const handleGetStarted = () => {
+    console.log("Get Started button clicked");
+  };
+
+  const handleLearnMore = () => {
+    console.log("Learn More button clicked");
+  };
+
   return (
     <div className="relative isolate overflow-hidden bg-black min-h-screen">
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
@@ -32,10 +48,17 @@ export const Hero = () => {
             </p>
             
             <div className="mt-10 flex items-center gap-x-6">
-              <Button className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-90 transition-opacity transform hover:scale-105">
+              <Button 
+                className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-90 transition-opacity transform hover:scale-105"
+                onClick={handleGetStarted}
+              >
                 Get Started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" className="text-white border-white/20 hover:bg-white/10">
+              <Button 
+                variant="outline" 
+                className="text-white border-white/20 hover:bg-white/10"
+                onClick={handleLearnMore}
+              >
                 Learn more
               </Button>
             </div>
