@@ -11,6 +11,8 @@ import ForAgencies from "./pages/ForAgencies";
 import Pricing from "./pages/Pricing";
 import Checkout from "./pages/Checkout";
 import Chat from "./pages/Chat";
+import Slot from "./pages/Slot";
+import Features from "./pages/Features";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/slot" element={<Slot />} />
+          <Route path="/features" element={<Features />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
