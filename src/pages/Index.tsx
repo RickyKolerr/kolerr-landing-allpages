@@ -3,6 +3,8 @@ import { Hero } from "@/components/home/Hero";
 import { Features } from "@/components/home/Features";
 import { Pricing } from "@/components/home/Pricing";
 import { KolShowcase } from "@/components/home/KolShowcase";
+import { Stats } from "@/components/home/Stats";
+import { Brands } from "@/components/home/Brands";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -26,8 +28,10 @@ const Index = () => {
         {/* Main content */}
         <div className="relative z-10">
           <Hero />
+          <Stats />
           <KolShowcase />
           <Features />
+          <Brands />
           <Pricing />
         </div>
       </main>
