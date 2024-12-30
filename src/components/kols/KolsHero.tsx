@@ -22,14 +22,16 @@ export const KolsHero = () => {
 
   return (
     <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black/95" />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-500/20 to-transparent rotate-12 animate-pulse" />
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-pink-500/20 to-transparent -rotate-12 animate-pulse" />
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+          alt="Background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black/95" />
       </div>
-
+      
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
@@ -42,11 +44,11 @@ export const KolsHero = () => {
               Unlock the Future of Influencer Marketing with Kolerr and TikTok's Global Data
             </h1>
             
-            <p className="text-xl text-gray-300 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-xl text-gray-300 mb-8 animate-fade-up">
               Join our network of successful KOLs and connect with brands that match your values
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-up" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-up">
               <Button 
                 size="lg"
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 group"
@@ -63,26 +65,30 @@ export const KolsHero = () => {
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 mt-12 animate-fade-up" style={{ animationDelay: "0.6s" }}>
+            <div className="grid grid-cols-3 gap-8 mt-12">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-2">{stat.value}</div>
+                <div 
+                  key={index} 
+                  className="text-center p-4 rounded-lg bg-white/5 backdrop-blur-sm animate-fade-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                   <div className="text-sm text-gray-400">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative lg:block animate-fade-up" style={{ animationDelay: "0.8s" }}>
+          <div className="relative lg:block animate-fade-up hidden">
             <div className="relative rounded-lg overflow-hidden">
               <img
-                src="/placeholder.svg"
-                alt="KOL Dashboard Preview"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                alt="Platform Dashboard"
                 className="w-full rounded-lg shadow-2xl"
               />
               
               {/* Floating stats cards */}
-              <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md rounded-lg p-4 animate-float">
+              <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md rounded-lg p-4 animate-float">
                 <div className="flex items-center gap-3">
                   <TrendingUp className="text-green-400" />
                   <div>
@@ -92,11 +98,11 @@ export const KolsHero = () => {
                 </div>
               </div>
               
-              <div className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md rounded-lg p-4 animate-float" style={{ animationDelay: "0.3s" }}>
+              <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md rounded-lg p-4 animate-float">
                 <div className="flex items-center gap-3">
                   <Users className="text-purple-400" />
                   <div>
-                    <div className="text-sm text-gray-200">Audience Reach</div>
+                    <div className="text-sm text-gray-200">Active Users</div>
                     <div className="text-lg font-bold text-white">2.5M+</div>
                   </div>
                 </div>
