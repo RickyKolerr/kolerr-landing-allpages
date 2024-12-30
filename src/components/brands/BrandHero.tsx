@@ -11,21 +11,26 @@ export const BrandHero = () => {
   useEffect(() => {
     const detectLocation = async () => {
       try {
+        // First, try to get from localStorage
         const cachedLocation = localStorage.getItem('userCountryCode');
         const cacheTimestamp = localStorage.getItem('locationCacheTimestamp');
         
+        // If we have a cached value and it's less than 1 hour old, use it
         if (cachedLocation && cacheTimestamp) {
           const cacheAge = Date.now() - parseInt(cacheTimestamp);
-          if (cacheAge < 3600000) {
+          if (cacheAge < 3600000) { // 1 hour in milliseconds
             setCountryCode(cachedLocation);
             return;
           }
         }
 
+        // If cache is expired or doesn't exist, try to fetch new data
         const response = await fetch("https://ipapi.co/json/");
         
+        // Handle rate limiting specifically
         if (response.status === 429) {
-          setCountryCode(cachedLocation || "US");
+          console.log("Rate limited, using cached or default value");
+          setCountryCode(cachedLocation || "US"); // Use cached value or fallback to US
           return;
         }
 
@@ -35,12 +40,14 @@ export const BrandHero = () => {
 
         const data = await response.json();
         
+        // Cache the new response
         localStorage.setItem('userCountryCode', data.country_code);
         localStorage.setItem('locationCacheTimestamp', Date.now().toString());
         
         setCountryCode(data.country_code);
       } catch (error) {
         console.error("Error detecting location:", error);
+        // Use cached value as fallback, or default to US if no cache exists
         setCountryCode(localStorage.getItem('userCountryCode') || "US");
       }
     };
