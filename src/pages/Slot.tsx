@@ -57,7 +57,7 @@ const Slot = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#030712]"> {/* Changed to a darker background color */}
       <Navigation />
       
       <main className="container mx-auto px-4">
