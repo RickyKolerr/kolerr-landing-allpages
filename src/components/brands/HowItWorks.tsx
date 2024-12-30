@@ -5,19 +5,19 @@ const steps = [
     title: "Create a Campaign",
     description: "Set your campaign goals and budget.",
     icon: Target,
-    image: "/campaign-form.png"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f"
   },
   {
     title: "Match with Influencers",
     description: "Our AI scans thousands of KOLs to find the perfect matches.",
     icon: Users,
-    image: "/influencer-matching.png"
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
   },
   {
     title: "Manage and Measure",
     description: "Launch and track performance in one intuitive dashboard.",
     icon: LineChart,
-    image: "/campaign-dashboard.png"
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
   }
 ];
 

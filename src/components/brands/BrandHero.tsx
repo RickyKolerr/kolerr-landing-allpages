@@ -114,7 +114,7 @@ export const BrandHero = () => {
           <div className="relative lg:block animate-fade-up" style={{ animationDelay: "0.6s" }}>
             <div className="relative">
               <img
-                src="/dashboard-mockup.png"
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
                 alt="Brand Dashboard"
                 className="rounded-lg shadow-2xl animate-float"
               />

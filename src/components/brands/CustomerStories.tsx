@@ -5,7 +5,7 @@ const stories = [
     name: "Sarah Johnson",
     role: "Marketing Director",
     company: "TechStart Inc.",
-    image: "/customer1.png",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     quote: "The AI matchmaking saved us countless hours in finding the right influencers for our tech products.",
     metrics: "150% ROI increase",
     rating: 5
@@ -14,7 +14,7 @@ const stories = [
     name: "Michael Chen",
     role: "Brand Manager",
     company: "Global Brands Co.",
-    image: "/customer2.png",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
     quote: "SLOT feature revolutionized how we manage our influencer campaigns across multiple time zones.",
     metrics: "3x engagement rate",
     rating: 5
@@ -23,7 +23,7 @@ const stories = [
     name: "Emma Davis",
     role: "Social Media Lead",
     company: "Fashion Forward",
-    image: "/customer3.png",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
     quote: "The real-time analytics provided insights we never had access to before. Game-changing!",
     metrics: "200k+ reach",
     rating: 5
