@@ -10,18 +10,49 @@ export const BrandHero = () => {
   useEffect(() => {
     const detectLocation = async () => {
       try {
-        // Using ipapi.co which supports CORS
-        const response = await fetch("https://ipapi.co/json/");
+        // Check localStorage first
+        const cachedLocation = localStorage.getItem('userCountryCode');
+        const cacheTimestamp = localStorage.getItem('locationCacheTimestamp');
+        
+        // If we have cached data less than 1 hour old, use it
+        if (cachedLocation && cacheTimestamp) {
+          const cacheAge = Date.now() - parseInt(cacheTimestamp);
+          if (cacheAge < 3600000) { // 1 hour in milliseconds
+            setCountryCode(cachedLocation);
+            return;
+          }
+        }
+
+        const response = await fetch("https://ipapi.co/json/", {
+          headers: {
+            'Accept': 'application/json',
+          }
+        });
+        
+        if (response.status === 429) {
+          // If rate limited, use cached data or fall back to US
+          setCountryCode(cachedLocation || "US");
+          return;
+        }
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         const data = await response.json();
+        
+        // Cache the result
+        localStorage.setItem('userCountryCode', data.country_code);
+        localStorage.setItem('locationCacheTimestamp', Date.now().toString());
+        
         setCountryCode(data.country_code);
       } catch (error) {
         console.error("Error detecting location:", error);
-        setCountryCode("US"); // Fallback to US
+        // Use cached data if available, otherwise fall back to US
+        setCountryCode(localStorage.getItem('userCountryCode') || "US");
       }
     };
+
     detectLocation();
   }, []);
 
