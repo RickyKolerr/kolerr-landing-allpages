@@ -3,6 +3,8 @@ import { BrandHero } from "@/components/brands/BrandHero";
 import { BrandBenefits } from "@/components/brands/BrandBenefits";
 import { HowItWorks } from "@/components/brands/HowItWorks";
 import { SlotFeature } from "@/components/brands/SlotFeature";
+import { PlatformFeatures } from "@/components/brands/PlatformFeatures";
+import { IntegrationShowcase } from "@/components/brands/IntegrationShowcase";
 import { PricingPreview } from "@/components/brands/PricingPreview";
 import { CustomerStories } from "@/components/brands/CustomerStories";
 import { BrandFAQ } from "@/components/brands/BrandFAQ";
@@ -15,7 +17,9 @@ const ForBrands = () => {
       <main>
         <BrandHero />
         <BrandBenefits />
+        <PlatformFeatures />
         <HowItWorks />
+        <IntegrationShowcase />
         <SlotFeature />
         <PricingPreview />
         <CustomerStories />
