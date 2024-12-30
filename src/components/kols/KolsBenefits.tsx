@@ -1,4 +1,4 @@
-import { Star, TrendingUp, DollarSign, Users, Shield, Zap } from "lucide-react";
+import { Star, TrendingUp, DollarSign, Users, Shield, Zap, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const benefits = [
