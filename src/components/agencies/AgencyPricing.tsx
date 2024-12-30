@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
+import { plans } from "@/config/pricing";
 
-const plans = [
+const agencyPlans = [
   {
     name: "Starter",
     description: "Manage up to 3 clients",
-    price: "$99",
+    price: plans[1].price, // Basic plan price
     features: [
       "3 client accounts",
       "Basic analytics",
@@ -15,7 +17,7 @@ const plans = [
   {
     name: "Professional",
     description: "Manage up to 10 clients",
-    price: "$299",
+    price: plans[3].price, // Pro plan price
     features: [
       "10 client accounts",
       "Advanced analytics",
@@ -50,37 +52,25 @@ export const AgencyPricing = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {plans.map((plan) => (
+          {agencyPlans.map((plan) => (
             <div
               key={plan.name}
               className="bg-gradient-to-br from-purple-900/50 to-black p-8 rounded-xl border border-purple-500/20"
             >
               <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
               <p className="text-gray-300 mb-4">{plan.description}</p>
-              <div className="text-3xl font-bold text-white mb-6">{plan.price}</div>
+              <div className="text-3xl font-bold text-white mb-6">
+                {typeof plan.price === "string" ? plan.price : `$${plan.price}`}
+              </div>
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3 text-gray-300">
-                    <svg
-                      className="w-5 h-5 text-purple-400 flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                    <Check className="w-5 h-5 text-purple-400" />
                     {feature}
                   </li>
                 ))}
               </ul>
-              <Button
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90"
-              >
+              <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90">
                 Get Started
               </Button>
             </div>

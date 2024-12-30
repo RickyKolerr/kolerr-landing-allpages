@@ -1,26 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { plans } from "@/config/pricing";
 
-const plans = [
-  {
-    name: "Basic",
-    price: "$99",
-    features: ["5 Active Campaigns", "Basic Analytics", "Email Support"],
-    popular: false
-  },
-  {
-    name: "Pro",
-    price: "$199",
-    features: ["15 Active Campaigns", "Advanced Analytics", "Priority Support", "Custom Reports"],
-    popular: true
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    features: ["Unlimited Campaigns", "Custom Solutions", "Dedicated Manager", "API Access"],
-    popular: false
-  }
-];
+const displayPlans = plans.slice(1, 4); // Show only Basic, Standard, and Pro plans
 
 export const PricingPreview = () => {
   return (
@@ -30,34 +12,36 @@ export const PricingPreview = () => {
           Choose Your Plan
         </h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan) => (
+          {displayPlans.map((plan, index) => (
             <div
               key={plan.name}
               className={`relative p-6 rounded-xl ${
-                plan.popular 
-                  ? "bg-gradient-to-br from-purple-600 to-pink-600 border-2 border-purple-400" 
+                index === 1
+                  ? "bg-gradient-to-br from-purple-600 to-pink-600 border-2 border-purple-400"
                   : "bg-gray-900 border border-gray-800"
               }`}
             >
-              {plan.popular && (
+              {index === 1 && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm">
                   Most Popular
                 </span>
               )}
               <h3 className="text-xl font-semibold text-white mb-2">{plan.name}</h3>
-              <p className="text-3xl font-bold text-white mb-6">{plan.price}</p>
+              <p className="text-3xl font-bold text-white mb-2">${plan.price}</p>
+              <p className="text-sm text-gray-400 mb-6">${plan.yearlyPrice}/year (save 15%)</p>
+              <p className="text-gray-300 mb-6">{plan.description}</p>
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-gray-300">
+                  <li key={feature.name} className="flex items-center gap-3 text-gray-300">
                     <Check className="w-5 h-5 text-green-500" />
-                    {feature}
+                    {feature.name}: {feature.value || (feature.included ? "Yes" : "No")}
                   </li>
                 ))}
               </ul>
-              <Button 
+              <Button
                 className={`w-full ${
-                  plan.popular 
-                    ? "bg-white text-purple-600 hover:bg-gray-100" 
+                  index === 1
+                    ? "bg-white text-purple-600 hover:bg-gray-100"
                     : "bg-purple-600 text-white hover:bg-purple-700"
                 }`}
               >
