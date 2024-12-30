@@ -9,19 +9,13 @@ export const AgencyHero = () => {
   useEffect(() => {
     const detectLocation = async () => {
       try {
-        const response = await fetch("https://api.ipify.org?format=json");
+        // Using ipapi.co which supports CORS
+        const response = await fetch("https://ipapi.co/json/");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const { ip } = await response.json();
-        
-        // Use the IP to get location data from ipapi.com
-        const locationResponse = await fetch(`https://ipapi.com/ip_api.php?ip=${ip}`);
-        if (!locationResponse.ok) {
-          throw new Error(`HTTP error! status: ${locationResponse.status}`);
-        }
-        const locationData = await locationResponse.json();
-        setCountryCode(locationData.country_code);
+        const data = await response.json();
+        setCountryCode(data.country_code);
       } catch (error) {
         console.error("Error detecting location:", error);
         setCountryCode("US"); // Fallback to US
