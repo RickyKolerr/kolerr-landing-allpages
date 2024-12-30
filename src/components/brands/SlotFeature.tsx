@@ -32,7 +32,7 @@ export const SlotFeature = () => {
           </div>
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
               alt="SLOT Feature Dashboard"
               className="rounded-lg shadow-2xl"
             />
