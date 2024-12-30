@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { ArrowRight, Star, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, Star, TrendingUp, Users, Award, Globe } from "lucide-react";
 
 export const KolsHero = () => {
   const [stats, setStats] = useState([
@@ -35,9 +35,11 @@ export const KolsHero = () => {
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 mb-6 animate-fade-up">
-              <Star className="w-4 h-4" />
-              <span>Become a Top KOL</span>
+            <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full bg-purple-500/20 border border-purple-500/30 mb-6 animate-fade-up">
+              <Globe className="w-5 h-5 text-purple-400" />
+              <span className="text-purple-300 font-medium">Global KOL Network</span>
+              <Award className="w-5 h-5 text-yellow-500" />
+              <span className="text-yellow-300 font-medium">#1 Platform</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text animate-fade-up">
