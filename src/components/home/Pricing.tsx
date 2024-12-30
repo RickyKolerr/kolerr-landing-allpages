@@ -3,9 +3,10 @@ import { Check, X } from "lucide-react";
 import { plans, searchPacks } from "@/config/pricing";
 import { useState } from "react";
 import { Language, getLanguageString } from "@/config/languages";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Pricing = () => {
-  const [language, setLanguage] = useState<Language>('en');
+  const { language, setLanguage } = useLanguage();
 
   const t = (path: string) => getLanguageString(language, `pricing.${path}`);
 
