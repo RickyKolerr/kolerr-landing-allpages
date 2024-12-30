@@ -1,9 +1,10 @@
 import { Navigation } from "@/components/layout/Navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
+import { Loader2 } from "lucide-react";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -11,24 +12,41 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Coming Soon",
-      description: "Authentication will be implemented with Supabase integration",
-    });
-  };
+    setIsLoading(true);
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      toast({
+        title: "Coming Soon",
+        description: "Authentication will be implemented with Supabase integration",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }, [toast]);
 
-  const handleForgotPassword = async (e: React.FormEvent) => {
+  const handleForgotPassword = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Coming Soon",
-      description: "Password reset will be implemented with Supabase integration",
-    });
-  };
+    setIsLoading(true);
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      toast({
+        title: "Coming Soon",
+        description: "Password reset will be implemented with Supabase integration",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }, [toast]);
 
   if (isForgotPassword) {
     return (
@@ -54,9 +72,16 @@ const Auth = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
                     className="mt-1 w-full bg-white/10 border-white/20 text-white"
+                    disabled={isLoading}
                   />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-90">
+                <Button 
+                  className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-90"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                  ) : null}
                   Send Reset Instructions
                 </Button>
               </form>
@@ -64,6 +89,7 @@ const Auth = () => {
                 <button
                   onClick={() => setIsForgotPassword(false)}
                   className="text-sm text-gray-400 hover:text-white"
+                  disabled={isLoading}
                 >
                   Back to Sign In
                 </button>
@@ -103,6 +129,7 @@ const Auth = () => {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="John Doe"
                     className="mt-1 w-full bg-white/10 border-white/20 text-white"
+                    disabled={isLoading}
                   />
                 </div>
               )}
@@ -116,6 +143,7 @@ const Auth = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   className="mt-1 w-full bg-white/10 border-white/20 text-white"
+                  disabled={isLoading}
                 />
               </div>
               <div>
@@ -128,6 +156,7 @@ const Auth = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   className="mt-1 w-full bg-white/10 border-white/20 text-white"
+                  disabled={isLoading}
                 />
               </div>
               {isLogin && (
@@ -136,12 +165,19 @@ const Auth = () => {
                     type="button"
                     onClick={() => setIsForgotPassword(true)}
                     className="text-sm text-gray-400 hover:text-white"
+                    disabled={isLoading}
                   >
                     Forgot password?
                   </button>
                 </div>
               )}
-              <Button className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-90">
+              <Button 
+                className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-90"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                ) : null}
                 {isLogin ? "Sign In" : "Sign Up"}
               </Button>
             </form>
@@ -149,6 +185,7 @@ const Auth = () => {
               <button
                 onClick={() => setIsLogin(!isLogin)}
                 className="text-sm text-gray-400 hover:text-white"
+                disabled={isLoading}
               >
                 {isLogin
                   ? "Don't have an account? Sign up"
