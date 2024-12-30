@@ -1,70 +1,55 @@
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export const AgencyHero = () => {
-  const [countryCode, setCountryCode] = useState<string | null>(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const detectLocation = async () => {
-      try {
-        // Using ipapi.co which supports CORS
-        const response = await fetch("https://ipapi.co/json/");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setCountryCode(data.country_code);
-      } catch (error) {
-        console.error("Error detecting location:", error);
-        setCountryCode("US"); // Fallback to US
-      }
-    };
-    detectLocation();
-  }, []);
-
   return (
     <section className="relative py-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black/95" />
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-500/20 to-transparent rotate-12 animate-pulse" />
+        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-pink-500/20 to-transparent -rotate-12 animate-pulse" />
+      </div>
+
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text animate-fade-up">
-              {countryCode === "VN" 
-                ? "Quản Lý Chiến Dịch KOL Cho Khách Hàng" 
-                : "Streamline Influencer Campaigns for Your Clients"}
+              Unlock the Future of Influencer Marketing with Kolerr and TikTok's Global Data
             </h1>
+            
             <p className="text-xl text-gray-300 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              {countryCode === "VN"
-                ? "Công cụ thông minh để quản lý nhiều thương hiệu và KOL trong một nơi"
-                : "Smart tools to manage multiple brands and influencers in one place"}
+              Scale your agency's influence with our comprehensive suite of tools and analytics
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-up" style={{ animationDelay: "0.4s" }}>
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90"
-                onClick={() => navigate("/auth/register")}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 group"
               >
-                Start Free Trial
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
                 className="border-purple-500 text-purple-500 hover:bg-purple-500/10"
-                onClick={() => navigate("/features")}
               >
-                Explore Features
+                Schedule Demo
               </Button>
             </div>
           </div>
+
           <div className="relative lg:block animate-fade-up" style={{ animationDelay: "0.6s" }}>
-            <img
-              src="/agency-dashboard.png"
-              alt="Agency Dashboard"
-              className="rounded-lg shadow-2xl"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="relative rounded-lg overflow-hidden">
+              <img
+                src="/placeholder.svg"
+                alt="Agency Dashboard Preview"
+                className="w-full rounded-lg shadow-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            </div>
           </div>
         </div>
       </div>

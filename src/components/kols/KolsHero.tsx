@@ -39,7 +39,7 @@ export const KolsHero = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text animate-fade-up">
-              Turn Your Influence Into Impact
+              Unlock the Future of Influencer Marketing with Kolerr and TikTok's Global Data
             </h1>
             
             <p className="text-xl text-gray-300 mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
