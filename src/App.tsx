@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Loader2 } from "lucide-react";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 // Lazy load components
 const Index = lazy(() => import("./pages/Index"));
@@ -36,26 +37,28 @@ const queryClient = new QueryClient({
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth/*" element={<Auth />} />
-            <Route path="/for-kols" element={<ForKols />} />
-            <Route path="/for-brands" element={<ForBrands />} />
-            <Route path="/for-agencies" element={<ForAgencies />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/slot" element={<Slot />} />
-            <Route path="/features" element={<Features />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
+    <LanguageProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/auth/*" element={<Auth />} />
+              <Route path="/for-kols" element={<ForKols />} />
+              <Route path="/for-brands" element={<ForBrands />} />
+              <Route path="/for-agencies" element={<ForAgencies />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/slot" element={<Slot />} />
+              <Route path="/features" element={<Features />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 
