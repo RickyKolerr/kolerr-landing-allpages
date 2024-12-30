@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase, Target, ChartBar } from "lucide-react";
+import { getOptimizedImageUrl } from "@/utils/imageOptimizer";
 
 export const AgencyHero = () => {
   return (
@@ -63,9 +64,12 @@ export const AgencyHero = () => {
           <div className="relative lg:block animate-fade-up" style={{ animationDelay: "0.8s" }}>
             <div className="relative rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+                src={getOptimizedImageUrl("https://images.unsplash.com/photo-1460925895917-afdab827c52f")}
                 alt="Agency Dashboard"
                 className="w-full rounded-lg shadow-2xl"
+                loading="lazy"
+                width="800"
+                height="600"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               
