@@ -8,7 +8,7 @@ const navigationItems = [
   { name: "For KOLs", path: "/for-kols", icon: Users },
   { name: "For Brands", path: "/for-brands", icon: Building2 },
   { name: "For Agencies", path: "/for-agencies", icon: Building2 },
-  { name: "Slots", path: "/slots", icon: Calendar },
+  { name: "Slot", path: "/slot", icon: Calendar }, // Changed from /slots to /slot
   { name: "Features", path: "/features", icon: FileText },
   { name: "Pricing", path: "/pricing", icon: CreditCard },
   { name: "Contracts & Chat", path: "/chat", icon: MessageSquare },
