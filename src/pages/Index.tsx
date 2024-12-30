@@ -2,6 +2,7 @@ import { Navigation } from "@/components/layout/Navigation";
 import { Hero } from "@/components/home/Hero";
 import { Features } from "@/components/home/Features";
 import { Pricing } from "@/components/home/Pricing";
+import { KolShowcase } from "@/components/home/KolShowcase";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -25,6 +26,7 @@ const Index = () => {
         {/* Main content */}
         <div className="relative z-10">
           <Hero />
+          <KolShowcase />
           <Features />
           <Pricing />
         </div>
