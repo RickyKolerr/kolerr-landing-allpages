@@ -15,23 +15,27 @@ export const BrandHero = () => {
         const cachedLocation = localStorage.getItem('userCountryCode');
         const cacheTimestamp = localStorage.getItem('locationCacheTimestamp');
         
-        // If we have a cached value and it's less than 1 hour old, use it
+        // If we have a cached value and it's less than 24 hours old, use it
         if (cachedLocation && cacheTimestamp) {
           const cacheAge = Date.now() - parseInt(cacheTimestamp);
-          if (cacheAge < 3600000) { // 1 hour in milliseconds
+          if (cacheAge < 86400000) { // 24 hours in milliseconds
             setCountryCode(cachedLocation);
             return;
           }
         }
 
-        // If cache is expired or doesn't exist, try to fetch new data
-        const response = await fetch("https://ipapi.co/json/");
+        // Try primary API first
+        let response = await fetch("https://ipapi.co/json/", { 
+          headers: { 'Accept': 'application/json' },
+          cache: 'no-store'
+        });
         
-        // Handle rate limiting specifically
+        // If rate limited, try backup API
         if (response.status === 429) {
-          console.log("Rate limited, using cached or default value");
-          setCountryCode(cachedLocation || "US"); // Use cached value or fallback to US
-          return;
+          console.log("Primary API rate limited, trying backup...");
+          response = await fetch("https://api.ipdata.co?api-key=test", {
+            headers: { 'Accept': 'application/json' }
+          });
         }
 
         if (!response.ok) {
@@ -39,12 +43,13 @@ export const BrandHero = () => {
         }
 
         const data = await response.json();
+        const code = data.country_code || data.country?.code || "US";
         
-        // Cache the new response
-        localStorage.setItem('userCountryCode', data.country_code);
+        // Cache the response
+        localStorage.setItem('userCountryCode', code);
         localStorage.setItem('locationCacheTimestamp', Date.now().toString());
         
-        setCountryCode(data.country_code);
+        setCountryCode(code);
       } catch (error) {
         console.error("Error detecting location:", error);
         // Use cached value as fallback, or default to US if no cache exists
