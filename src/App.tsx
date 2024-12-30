@@ -18,6 +18,7 @@ const Checkout = lazy(() => import("./pages/Checkout"));
 const Chat = lazy(() => import("./pages/Chat"));
 const Slot = lazy(() => import("./pages/Slot"));
 const Features = lazy(() => import("./pages/Features"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -28,8 +29,8 @@ const LoadingSpinner = () => (
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000, // 1 minute
-      gcTime: 5 * 60 * 1000, // 5 minutes (replacing cacheTime)
+      staleTime: 60 * 1000,
+      gcTime: 5 * 60 * 1000,
       retry: 1,
     },
   },
@@ -54,6 +55,7 @@ const App = () => (
               <Route path="/chat" element={<Chat />} />
               <Route path="/slot" element={<Slot />} />
               <Route path="/features" element={<Features />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>
         </BrowserRouter>
