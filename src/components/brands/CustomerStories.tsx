@@ -2,25 +2,25 @@ import { Star } from "lucide-react";
 
 const stories = [
   {
-    name: "Sarah Johnson",
-    company: "TechStart Inc.",
+    name: "David Wilson",
+    company: "TechGrowth Inc.",
     image: "/customer1.png",
-    quote: "The AI matchmaking saved us countless hours in finding the right influencers.",
-    metrics: "150% ROI increase"
+    quote: "The AI-powered SEO recommendations helped us achieve top rankings.",
+    metrics: "250% organic traffic increase"
   },
   {
-    name: "Michael Chen",
-    company: "Global Brands Co.",
+    name: "Lisa Chen",
+    company: "Digital Solutions Co.",
     image: "/customer2.png",
-    quote: "SLOT feature revolutionized how we manage our campaigns.",
-    metrics: "3x engagement rate"
+    quote: "Comprehensive SEO analytics transformed our online presence.",
+    metrics: "5x keyword rankings"
   },
   {
-    name: "Emma Davis",
-    company: "Fashion Forward",
+    name: "Mark Davis",
+    company: "E-commerce Plus",
     image: "/customer3.png",
-    quote: "The analytics provided insights we never had access to before.",
-    metrics: "200k+ reach"
+    quote: "The technical SEO insights were game-changing for our platform.",
+    metrics: "300% ROI"
   }
 ];
 
@@ -29,7 +29,7 @@ export const CustomerStories = () => {
     <section className="py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
-          Trusted by Leading Brands
+          Success Stories
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {stories.map((story) => (
@@ -54,7 +54,7 @@ export const CustomerStories = () => {
                 ))}
               </div>
               <p className="text-gray-300 mb-4">{story.quote}</p>
-              <p className="text-purple-400 font-semibold">{story.metrics}</p>
+              <p className="text-blue-400 font-semibold">{story.metrics}</p>
             </div>
           ))}
         </div>
