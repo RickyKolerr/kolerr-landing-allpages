@@ -25,7 +25,7 @@ export const KolsHero = () => {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
           alt="Background"
           className="w-full h-full object-cover"
         />
@@ -82,7 +82,7 @@ export const KolsHero = () => {
           <div className="relative lg:block animate-fade-up hidden">
             <div className="relative rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
                 alt="Platform Dashboard"
                 className="w-full rounded-lg shadow-2xl"
               />
